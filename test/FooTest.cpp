@@ -1,13 +1,12 @@
 #include "gtest/gtest.h"
 #include "Foo.h"
 
-namespace {
-  class FooTest : public ::testing::Test {
-  protected:
-    Casino::Foo foo;
-  };
+class FooTest : public ::testing::Test {
+protected:
+	Casino::Foo foo;
+};
 
-  TEST_F(FooTest, Foo) {
-    ASSERT_TRUE(foo.Run());
-  }
+TEST_F(FooTest, FooTest1) {
+	Casino::Foo foo;
+	ASSERT_TRUE(foo.Run());
 }
