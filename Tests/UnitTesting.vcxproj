@@ -37,11 +37,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>src;contrib;$(IncludePath)</IncludePath>
+    <IncludePath>..\Domain;..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>src;contrib;$(IncludePath)</IncludePath>
+    <IncludePath>..\Domain;..\contrib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -73,15 +73,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="contrib\gmock-gtest-all.cc" />
-    <ClCompile Include="src\Foo.cpp" />
-    <ClCompile Include="test\AllTests.cpp" />
-    <ClCompile Include="test\FooTest.cpp" />
+    <ClCompile Include="..\contrib\gmock-gtest-all.cc" />
+    <ClCompile Include="AllTests.cpp" />
+    <ClCompile Include="FooTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\gmock\gmock.h" />
     <ClInclude Include="contrib\gtest\gtest.h" />
-    <ClInclude Include="src\Foo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.vcxproj">
+      <Project>{b5eb204f-d583-444b-aaeb-e20db69dae34}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
