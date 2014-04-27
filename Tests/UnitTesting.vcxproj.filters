@@ -24,12 +24,18 @@
     <ClCompile Include="..\contrib\gmock-gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RollDiceGameTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\gmock\gmock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="contrib\gtest\gtest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiceFake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
