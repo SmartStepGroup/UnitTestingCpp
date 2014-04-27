@@ -11,10 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bet.cpp" />
+    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Foo.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RollDiceGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bet.h" />
+    <ClInclude Include="Dice.h" />
     <ClInclude Include="Foo.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="RollDiceGame.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B5EB204F-D583-444B-AAEB-E20DB69DAE34}</ProjectGuid>
