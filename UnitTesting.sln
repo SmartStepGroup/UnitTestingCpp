@@ -5,10 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Domain", "Domain\Domain.vcxproj", "{B5EB204F-D583-444B-AAEB-E20DB69DAE34}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTesting", "Tests\UnitTesting.vcxproj", "{24861C58-6BCA-4D20-BAE8-47316FA0AF5A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{B5EB204F-D583-444B-AAEB-E20DB69DAE34} = {B5EB204F-D583-444B-AAEB-E20DB69DAE34}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{24861C58-6BCA-4D20-BAE8-47316FA0AF5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
