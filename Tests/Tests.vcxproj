@@ -77,12 +77,10 @@
     <ClCompile Include="..\contrib\gmock-gtest-all.cc" />
     <ClCompile Include="AllTests.cpp" />
     <ClCompile Include="FooTest.cpp" />
-    <ClCompile Include="RollDiceGameTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="contrib\gmock\gmock.h" />
     <ClInclude Include="contrib\gtest\gtest.h" />
-    <ClInclude Include="DiceFake.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.vcxproj">
