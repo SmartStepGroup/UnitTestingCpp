@@ -3,7 +3,7 @@
 
 RollDiceGame::RollDiceGame(Dice& _dice) : dice(_dice)
 {
-	players = std::list<Player>();
+	players = std::vector<Player*>();
 }
 
 
@@ -11,9 +11,9 @@ RollDiceGame::~RollDiceGame()
 {
 }
 
-void RollDiceGame::Add(Player player)
+void RollDiceGame::Add(Player& player)
 {
-	players.insert(players.end(), player);
+	players.push_back(&player);
 }
 
 int RollDiceGame::NumberOfPlayers()
@@ -29,4 +29,16 @@ int RollDiceGame::WinningScore()
 void RollDiceGame::Play()
 {
 	winningScore = dice.Roll();
+	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer)
+	{
+		Player& player = **pplayer;
+		if (player.GetCurrentBet().Score() == winningScore)
+		{
+			player.Win(player.GetCurrentBet().Amount() * 6);
+		}
+		else
+		{
+			player.Lose();
+		}
+	}
 }
