@@ -1,7 +1,7 @@
 #include "RollDiceGame.h"
 
 
-RollDiceGame::RollDiceGame(Dice& _dice) : dice(_dice)
+RollDiceGame::RollDiceGame()
 {
 	players = std::vector<Player*>();
 }
@@ -28,7 +28,7 @@ int RollDiceGame::WinningScore()
 
 void RollDiceGame::Play()
 {
-	winningScore = dice.Roll();
+	winningScore = rand() % 6 + 1;
 	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer)
 	{
 		Player& player = **pplayer;
