@@ -1,9 +1,9 @@
 #include "RollDiceGame.h"
 
-
 RollDiceGame::RollDiceGame()
 {
 	players = std::vector<Player*>();
+	srand(time(nullptr));
 }
 
 
@@ -21,14 +21,9 @@ int RollDiceGame::NumberOfPlayers()
 	return players.size();
 }
 
-int RollDiceGame::WinningScore()
-{
-	return winningScore;
-}
-
 void RollDiceGame::Play()
 {
-	winningScore = rand() % 6 + 1;
+	int winningScore = rand() % 6 + 1;
 	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer)
 	{
 		Player& player = **pplayer;

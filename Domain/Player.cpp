@@ -1,12 +1,16 @@
 #include "Player.h"
 
-
 Player::Player() : currentBet(0, 0), chips(0)
 {
 }
 
 void Player::MakeBet(Bet _bet)
 {
+	if (_bet.Amount() > GetChips())
+	{
+		throw "You can't bet more chips than you have. Buy more chips.";
+	}
+
 	currentBet = _bet;
 	chips -= currentBet.Amount();
 }
