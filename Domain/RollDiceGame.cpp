@@ -1,38 +1,33 @@
 #include "RollDiceGame.h"
 
-RollDiceGame::RollDiceGame()
-{
+RollDiceGame::RollDiceGame(IDice* dice) {
 	players = std::vector<Player*>();
-	srand(time(nullptr));
+	_dice = dice;
 }
 
 
-RollDiceGame::~RollDiceGame()
-{
-}
+RollDiceGame::~RollDiceGame() {}
 
-void RollDiceGame::Add(Player& player)
-{
+void RollDiceGame::Add(Player& player) {
 	players.push_back(&player);
 }
 
-int RollDiceGame::NumberOfPlayers()
-{
+int RollDiceGame::NumberOfPlayers() {
 	return players.size();
 }
 
-void RollDiceGame::Play()
-{
-	int winningScore = rand() % 6 + 1;
-	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer)
-	{
+int RollDiceGame::RollDice() {
+	return _dice->Roll();
+}
+
+void RollDiceGame::Play() {
+	int winningScore = RollDice();
+	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer) {
 		Player& player = **pplayer;
-		if (player.GetCurrentBet().Score() == winningScore)
-		{
+		if (player.GetCurrentBet().Score() == winningScore) {
 			player.Win(player.GetCurrentBet().Amount() * 6);
 		}
-		else
-		{
+		else {
 			player.Lose();
 		}
 	}
