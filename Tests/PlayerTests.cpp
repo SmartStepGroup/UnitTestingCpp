@@ -53,7 +53,7 @@ TEST_F(PlayerTest, PlayerCanJoinGame) {
 TEST_F(PlayerTest, GameCallsRoll) {
 	player.AddChips(100);
 	DiceStub* dice = new DiceStub();
-	EXPECT_CALL(*dice, Roll()).Times(0).WillRepeatedly(Return(1));
+	EXPECT_CALL(*dice, Roll()).Times(1).WillRepeatedly(Return(1));
 	RollDiceGame game = RollDiceGame(dice);
 
 	game.Play();
