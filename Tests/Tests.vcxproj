@@ -82,10 +82,6 @@
     <ClCompile Include="PlayerTests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="contrib\gmock\gmock.h" />
-    <ClInclude Include="contrib\gtest\gtest.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.vcxproj">
       <Project>{b5eb204f-d583-444b-aaeb-e20db69dae34}</Project>
     </ProjectReference>
