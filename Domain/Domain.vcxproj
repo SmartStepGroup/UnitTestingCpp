@@ -12,16 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bet.cpp" />
-    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Foo.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RollDiceGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bet.h" />
-    <ClInclude Include="Dice.h" />
     <ClInclude Include="Foo.h" />
-    <ClInclude Include="IDice.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceGame.h" />
   </ItemGroup>

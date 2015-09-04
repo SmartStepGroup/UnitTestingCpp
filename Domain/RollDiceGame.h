@@ -1,12 +1,11 @@
 #pragma once
 #include "Player.h"
 #include <vector>
-#include "IDice.h"
 
 class RollDiceGame
 {
 public:
-	RollDiceGame(IDice* dice);
+	RollDiceGame();
 	virtual ~RollDiceGame();
 	void Add(Player& player);
 	int NumberOfPlayers();
@@ -15,6 +14,5 @@ public:
 
 private:
 	std::vector<Player*> players;
-	IDice* _dice;
 };
 
