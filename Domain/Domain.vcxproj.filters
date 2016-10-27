@@ -41,5 +41,8 @@
     <ClInclude Include="Bet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IDice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
