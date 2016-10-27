@@ -5,7 +5,7 @@
 class GameStub : public RollDiceGame
 {
 public:
-	MOCK_METHOD0(RollDice, int());
+	MOCK_METHOD0(RollDice, Score());
 	MOCK_METHOD2(OnPlayerWin, void(Player&,int));
 	MOCK_METHOD1(OnPlayerLose, void(Player&));
 };

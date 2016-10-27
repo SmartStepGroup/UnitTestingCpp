@@ -7,7 +7,6 @@ RollDiceGame::RollDiceGame() {
 	srand(time(nullptr));
 }
 
-
 RollDiceGame::~RollDiceGame() {}
 
 void RollDiceGame::Add(Player& player) {
@@ -19,10 +18,10 @@ int RollDiceGame::NumberOfPlayers() {
 }
 
 void RollDiceGame::Play() {
-	int winningScore = RollDice();
+	Score winningScore = RollDice();
 	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer) {
 		Player& player = **pplayer;
-		if (player.GetCurrentBet().Score() == winningScore) {
+		if (player.GetCurrentBet().GetScore() == winningScore) {
 			OnPlayerWin(player, winningScore);
 		}
 		else {
@@ -31,14 +30,14 @@ void RollDiceGame::Play() {
 	}
 }
 
-int RollDiceGame::RollDice()
+Score RollDiceGame::RollDice()
 {
-	return (rand() % 6) + 1;
+	return Score((rand() % 6) + 1);
 }
 
-void RollDiceGame::OnPlayerWin(Player &player, int /* winscore */)
+void RollDiceGame::OnPlayerWin(Player &player, Score /* winscore */)
 {
-	player.Win(player.GetCurrentBet().Amount() * 6);
+	player.Win(player.GetCurrentBet().GetAmount() * 6);
 }
 
 void RollDiceGame::OnPlayerLose(Player &player)

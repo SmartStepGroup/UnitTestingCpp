@@ -1,14 +1,25 @@
 #pragma once
+#include "unit.h"
+
+struct AmountTag;
+struct ScoreTag;
+
+typedef Unit<AmountTag> Amount;
+typedef Unit<ScoreTag> Score;
+
 class Bet
 {
 public:
-	Bet(int amount, int score);
+	static Bet Zero() { return Bet(Amount(0), Score(0)); }
+
+	Bet(Amount amount, Score score);
 	~Bet();
-	int Amount();
-	int Score();
+
+	Amount GetAmount() const { return m_amount; }
+	Score GetScore() const { return m_score; }
 
 private:
-	int amount;
-	int score;
+	Amount m_amount;
+	Score m_score;
 };
 

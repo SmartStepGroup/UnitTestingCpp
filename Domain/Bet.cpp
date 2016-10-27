@@ -1,19 +1,9 @@
 #include "Bet.h"
 
-Bet::Bet(int _amount, int _score)
+Bet::Bet(Amount amount, Score score)
+	: m_amount(amount)
+	, m_score(score)
 {
-	amount = _amount;
-	score = _score;
-}
-
-int Bet::Score()
-{
-	return score;
-}
-
-int Bet::Amount()
-{
-	return amount;
 }
 
 Bet::~Bet()

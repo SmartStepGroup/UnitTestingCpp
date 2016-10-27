@@ -1,24 +1,24 @@
 #include "Player.h"
 
-Player::Player() : currentBet(0, 0), chips(0)
+Player::Player() : currentBet(Amount(0), Score(0)), chips(0)
 {
 }
 
 void Player::MakeBet(Bet _bet)
 {
-	if (_bet.Amount() > GetChips())
+	if (_bet.GetAmount() > GetChips())
 	{
 		throw "You can't bet more chips than you have. Buy more chips.";
 	}
 
 	currentBet = _bet;
-	chips -= currentBet.Amount();
+	chips -= currentBet.GetAmount();
 }
 
-void Player::Win(int wonChips)
+void Player::Win(Amount wonChips)
 {
 	chips += wonChips;
-	currentBet = Bet(0, 0);
+	currentBet = Bet::Zero();
 }
 
 Bet Player::GetCurrentBet()
@@ -32,15 +32,10 @@ Player::~Player()
 
 void Player::Lose()
 {
-	currentBet = Bet(0, 0);
+	currentBet = Bet::Zero();
 }
 
-int Player::GetChips()
-{
-	return chips;
-}
-
-void Player::AddChips(int _chips)
+void Player::AddChips(Amount _chips)
 {
 	chips += _chips;
 }

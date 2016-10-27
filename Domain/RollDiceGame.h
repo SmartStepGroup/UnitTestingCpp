@@ -1,6 +1,7 @@
 #pragma once
 #include "Player.h"
 #include <vector>
+#include "bet.h"
 
 class RollDiceGame
 {
@@ -12,8 +13,8 @@ public:
 	void Play();
 
 protected:
-	virtual int RollDice();
-	virtual void OnPlayerWin(Player &player, int winscore);
+	virtual Score RollDice();
+	virtual void OnPlayerWin(Player &player, Score winscore);
 	virtual void OnPlayerLose(Player &player);
 
 private:

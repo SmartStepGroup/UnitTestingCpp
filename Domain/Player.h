@@ -8,13 +8,13 @@ public:
 	~Player();
 	void MakeBet(Bet bet);
 	Bet GetCurrentBet();
-	void AddChips(int chips);
-	int GetChips();
+	void AddChips(Amount chips);
+	Amount GetChips() const { return chips; }
 	void Lose();
-	void Win(int chips);
+	void Win(Amount chips);
 
 private: 
 	Bet currentBet;
-	int chips;
+	Amount chips;
 };
 

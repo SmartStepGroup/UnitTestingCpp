@@ -21,6 +21,7 @@
     <ClInclude Include="Foo.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceGame.h" />
+    <ClInclude Include="unit.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B5EB204F-D583-444B-AAEB-E20DB69DAE34}</ProjectGuid>
