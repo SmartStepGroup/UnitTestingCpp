@@ -6,12 +6,12 @@ Bet::Bet(int _amount, int _score)
 	score = _score;
 }
 
-int Bet::Score()
+int Bet::Score() const
 {
 	return score;
 }
 
-int Bet::Amount()
+int Bet::Amount() const
 {
 	return amount;
 }

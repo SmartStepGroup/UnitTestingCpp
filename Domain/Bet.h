@@ -4,8 +4,8 @@ class Bet
 public:
 	Bet(int amount, int score);
 	~Bet();
-	int Amount();
-	int Score();
+	int Amount() const;
+	int Score() const;
 
 private:
 	int amount;

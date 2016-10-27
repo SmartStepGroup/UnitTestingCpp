@@ -18,7 +18,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bet.h" />
+    <ClInclude Include="Dice.h" />
     <ClInclude Include="Foo.h" />
+    <ClInclude Include="IDice.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceGame.h" />
   </ItemGroup>
