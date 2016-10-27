@@ -1,11 +1,12 @@
 #include "RollDiceGame.h"
 #include <ctime>
 
-RollDiceGame::RollDiceGame() {
+RollDiceGame::RollDiceGame(IDice* dice) 
+	: m_dice(dice)
+{
 	players = std::vector<Player*>();
 	srand(time(nullptr));
 }
-
 
 RollDiceGame::~RollDiceGame() {}
 
@@ -18,7 +19,7 @@ int RollDiceGame::NumberOfPlayers() {
 }
 
 void RollDiceGame::Play() {
-	int winningScore = rand() % 6 + 1;;
+	int winningScore = m_dice->Roll();
 	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer) {
 		Player& player = **pplayer;
 		if (player.GetCurrentBet().Score() == winningScore) {
@@ -29,3 +30,9 @@ void RollDiceGame::Play() {
 		}
 	}
 }
+
+int Dice::Roll()
+{
+	return (rand() % 6 + 1);
+}
+
