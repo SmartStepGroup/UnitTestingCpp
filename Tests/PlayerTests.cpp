@@ -55,7 +55,7 @@ public:
 	MOCK_METHOD0(Roll, int());
 };
 
-TEST_F(PlayerCan, WinAGame)
+TEST_F(PlayerCan, WinAGame_SixTimesMoreChips)
 {
 	Player player;
 	player.AddChips(100);
@@ -63,10 +63,31 @@ TEST_F(PlayerCan, WinAGame)
 	auto dice = std::make_unique<NiceMock<DiceStub>>();
 	ON_CALL(*dice, Roll()).WillByDefault(Return(5));
 	RollDiceGame game(dice.get());
-	
 	game.Add(player);
+
 	game.Play();
 	
 	ASSERT_EQ(600, player.GetChips());
+}
+
+class PlayerMock : public Player
+{
+public:
+	MOCK_METHOD1(Win, void(int));
+};
+
+TEST_F(PlayerCan, WinAGame_CallWin)
+{
+	PlayerMock player;
+	player.AddChips(100);
+	player.MakeBet(Bet(100, 5));
+	auto dice = std::make_unique<NiceMock<DiceStub>>();
+	ON_CALL(*dice, Roll()).WillByDefault(Return(5));
+	RollDiceGame game(dice.get());
+	game.Add(player);
+
+	EXPECT_CALL(player, Win(Eq(600)));
+	
+	game.Play();
 }
 
