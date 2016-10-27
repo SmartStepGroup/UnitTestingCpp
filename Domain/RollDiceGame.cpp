@@ -7,13 +7,13 @@ RollDiceGame::RollDiceGame() {
 	srand(time(nullptr));
 }
 
-RollDiceGame::RollDiceGame(IDice* adice) {
+RollDiceGame::RollDiceGame(RollDiceGame&& game) : dice(std::move(game.dice)), players(std::move(game.players)) {}
+
+RollDiceGame::RollDiceGame(std::unique_ptr<IDice> aDice) {
 	players = std::vector<Player*>();
 	srand(time(nullptr));
-	dice = adice;
+	dice = std::move(aDice);
 }
-
-
 
 RollDiceGame::~RollDiceGame() {}
 
