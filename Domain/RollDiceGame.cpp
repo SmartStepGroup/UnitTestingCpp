@@ -1,4 +1,5 @@
 #include "RollDiceGame.h"
+#include <stdlib.h>
 #include <ctime>
 
 RollDiceGame::RollDiceGame() {
@@ -18,14 +19,29 @@ int RollDiceGame::NumberOfPlayers() {
 }
 
 void RollDiceGame::Play() {
-	int winningScore = rand() % 6 + 1;;
+	int winningScore = RollDice();
 	for (std::vector<Player*>::iterator pplayer = players.begin(); pplayer != players.end(); ++pplayer) {
 		Player& player = **pplayer;
 		if (player.GetCurrentBet().Score() == winningScore) {
-			player.Win(player.GetCurrentBet().Amount() * 6);
+			OnPlayerWin(player, winningScore);
 		}
 		else {
-			player.Lose();
+			OnPlayerLose(player);
 		}
 	}
+}
+
+int RollDiceGame::RollDice()
+{
+	return (rand() % 6) + 1;
+}
+
+void RollDiceGame::OnPlayerWin(Player &player, int /* winscore */)
+{
+	player.Win(player.GetCurrentBet().Amount() * 6);
+}
+
+void RollDiceGame::OnPlayerLose(Player &player)
+{
+	player.Lose();
 }

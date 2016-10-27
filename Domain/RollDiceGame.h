@@ -9,8 +9,12 @@ public:
 	virtual ~RollDiceGame();
 	void Add(Player& player);
 	int NumberOfPlayers();
-	virtual int RollDice();
 	void Play();
+
+protected:
+	virtual int RollDice();
+	virtual void OnPlayerWin(Player &player, int winscore);
+	virtual void OnPlayerLose(Player &player);
 
 private:
 	std::vector<Player*> players;
